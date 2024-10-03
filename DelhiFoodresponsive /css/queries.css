@@ -1,0 +1,297 @@
+/* rem and em do not depenedt on html font-size in media 
+quiries  insetead 1 rem = 1em = 16px */
+
+/* calculation how we use rem  1335px/16px 
+= 84.2343 em so we can take round  */
+/* ************************** */
+/*  84*16 = 1344 px (smaller computer )   */
+/* ******************* */
+/*  */
+@media (max-width: 84em) {
+  .hero {
+    /* its mean  after break point 84em 
+    it will change */
+    max-width: 120rem;
+  }
+
+  .heading-primary {
+    font-size: 4.4rem;
+  }
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+/* ******************* */
+/*133 for tablet / ipad    1200/16 = 75em*/
+/* ******************* */
+@media (max-width: 75em) {
+  html {
+    /* 9/16px =  .5625*100 = 56.25% */
+    font-size: 56.25%;
+  }
+  .heading-secondary {
+    font-size: 3.6rem;
+  }
+  .heading-tertiary {
+    font-size: 2.4rem;
+  }
+
+  .grid {
+    column-gap: 4.8rem;
+    row-gap: 6.4rem;
+  }
+  /* reduce header padding to make it equal */
+  .header {
+    padding: 0 3.2rem;
+  }
+  .hero {
+    gap: 4.8rem;
+  }
+
+  .main-nav-list {
+    gap: 3.2rem;
+  }
+  .testimonials-container {
+    /* top/bottom 9.6  L/R 3.2rem  */
+    padding: 9.6rem 3.2rem;
+  }
+}
+
+/* ********************* */
+/*  go for  small tablet  
+cal 940px/16 = 59em   */
+/* ********************* */
+
+@media (max-width: 59em) {
+  html {
+    /* reduce 1 px cal 8/16px = 0.5*100 
+    50% g.css */
+    font-size: 50%;
+  }
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 0 8rem;
+    gap: 4.8rem;
+  }
+
+  /*  we will keep text and image in the middle  */
+  .hero-text-box,
+  .hero-img-box {
+    text-align: center;
+  }
+  /* reduce hero img  and  */
+  .hero-img {
+    width: 60%;
+  }
+  .delivered-meals {
+    justify-content: center;
+    margin-top: 3.2rem;
+  }
+  .logos img {
+    height: 2.4rem;
+  }
+
+  .step-number {
+    font-size: 7.4rem;
+  }
+  .meal-content {
+    /*padding: 3.2rem 4.8rem 4.8rem 4.8rem;   so reduce
+    one point down */
+    padding: 2.2rem 3.8rem 3.8rem 2.2rem;
+  }
+  .section-testimonial {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .cta {
+    /*  we make 5 3part will be text 2 part willbe img  
+    mean 3/5 = 60% and 2/5 40%*/
+    grid-template-columns: 3fr 2fr;
+  }
+  .cta-form {
+    grid-template-columns: 1fr;
+  }
+
+  /* in g.css */
+  .btn--form {
+    margin-top: 1.6rem;
+  }
+
+  /* monbile navigation -135 */
+  .btn-mobile-nav {
+    display: block;
+  }
+
+  .main-nav {
+    /* test  */
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+
+    /*  make it flex all  */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s ease-in-out;
+    /* hide navigation  */
+    /* allow no transition  display = none  */
+    /* display: none; */
+
+    /* 1 hide the element  */
+    opacity: 0;
+    /* 2 take it unaccessible to mouse and keyboard */
+    pointer-events: none;
+
+    /* 3 hide it form screen reader */
+    visibility: hidden;
+
+    /* effect  horizontally */
+    transform: translateX(100%);
+  }
+
+  /*  here we active visibility  by reversing  */
+  .nav-open .main-nav {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+
+    /* make  transform: translate(0) in initial position  */
+    transform: translate(0);
+  }
+  /* so it means if  nav-open class exit then close outline will show  */
+  .nav-open .btn-mobile-nav[name="close-outline"] {
+    display: block;
+  }
+  .nav-open .btn-mobile-nav[name="menu-outline"] {
+    display: none;
+  }
+
+  .nav-open .main-nav-list {
+    /* already flex container  */
+    flex-direction: column;
+    gap: 4.8rem;
+  }
+  .main-nav-link:link,
+  .main-nav-link:visited {
+    font-size: 3.2rem;
+  }
+}
+
+/* ******************* */
+/*13 for  smaller  tablet     700/16 = 44em*/
+/* ******************* */
+
+@media (max-width: 44em) {
+  .grid--3-cols,
+  .grid--4-cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .diets {
+    grid-column: 1/-1;
+    /* we just put in indivudal grid
+    column so justify-self , container */
+    justify-self: center;
+  }
+  /*reduce gap  */
+  .heading-secondary {
+    margin-bottom: 4.8cm;
+  }
+
+  /* pricing we will make card width 100 % it as 75%   */
+  .pricing-plan {
+    width: 100%;
+  }
+  .grid--footer {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .nav-col,
+  .logo-col {
+    grid-column: span 3;
+  }
+  .nav-col {
+    grid-row: 1;
+    grid-column: span 2;
+    margin-bottom: 3.2rem;
+  }
+}
+
+/* ********************* */
+/*  go for  small screen or mobile  
+cal 550px/16 = 54em   */
+/* ********************* */
+
+@media (max-width: 34em) {
+  /* reduce gap */
+
+  .grid {
+    row-gap: 4.8rem;
+  }
+  .grid--2-cols,
+  .grid--3-cols,
+  .grid--4-cols {
+    grid-template-columns: 1fr;
+  }
+
+  .section-hero {
+    padding: 2.4rem 0 4.8rem 0;
+  }
+
+  .hero {
+    padding: 3.2rem;
+  }
+  /* increase the button size  */
+  .btn,
+  .btn:link,
+  .btn:visited {
+    padding: 2.4rem 1.6rem;
+  }
+  /* increase img  */
+  .hero-img {
+    width: 80%;
+  }
+  /* decrease logo img use pseudo selector  */
+  .logos img {
+    height: 1.2rem;
+  }
+
+  /* 2 is because this image is 2nd
+  child of container is a order of chid in container  */
+  .step-img-box:nth-child(2) {
+    /* move this first row  */
+    grid-row: 1;
+  }
+
+  /* same way we move the 6th child  */
+  .step-img-box:nth-child(6) {
+    /* move it to 5th row  */
+    grid-row: 5;
+  }
+  .step-img-box {
+    transform: translateY(2.4rem);
+  }
+  .testimonials {
+    grid-template-columns: 1fr;
+  }
+  .gallery {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+  .cta-text-box {
+    padding: 1.2rem;
+  }
+  .cta {
+    grid-template-columns: 1fr;
+  }
+  .cta-img-box {
+    height: 32rem;
+    grid-row: 1;
+  }
+}

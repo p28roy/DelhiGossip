@@ -1,0 +1,278 @@
+/* 
+---01 Typography System
+-FONT SIZE SYSTEM (px)
+   10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+  - Font-Weight
+  default 400
+  medium 500
+  semibold 600
+  bold 700
+
+    -line heights
+ default :1
+ 1.05
+ 1.6
+ 1.2
+
+ --letter spacing 
+ o.5
+ o.75
+
+      
+
+ 
+ --- Colors
+ --primary #e67e22
+ --Tints(normally darker ) #fdf2e9 :
+ #eb984e
+ --shades #cf711f
+ --Accents
+ --Greys #555
+ -- dark #333
+ light gray #756B6B
+
+---sHADOWS
+ 0 2.4rem 4.8rem rgba(0, 0, 0, 0.768);
+--Border -Radius
+--whitespace
+SPACING SYSTEM (px)
+ 2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128  
+
+
+*/
+
+/* global reset */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: none;
+
+  /* outline: 4px solid #e67e22;
+  outline-offset: 0.8rem; */
+
+  box-shadow: 0 0 0 0.8rem rgba(230, 125, 34, 0.401);
+}
+html {
+  /* font-size: 10px; */
+  /* Cal > 10/16= 0.625%  *100 = 62.5 %  */
+  /* percentage of user browser font-setting  */
+
+  font-size: 62.5%;
+  /* for mobile 135  */
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Rubik" sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: #555;
+
+  /* for mobile 135  */
+  overflow-x: hidden;
+}
+/* ************************** */
+/* GENERAL Reusable component  */
+/* ******************* */
+
+/* here keep common heading item */
+.heading-primary,
+.heading-secondary {
+  font-weight: 700;
+  color: #333;
+  letter-spacing: -0.5px;
+}
+
+.heading-primary {
+  font-size: 5.2rem;
+  line-height: 1.05;
+  margin-bottom: 3.2rem;
+}
+.heading-secondary {
+  font-size: 4.4rem;
+  line-height: 1.2;
+  margin-bottom: 9.6rem;
+}
+.subheading {
+  display: black;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #cf711f;
+
+  text-transform: uppercase;
+  margin-bottom: 1.6rem;
+  letter-spacing: 0.75px;
+}
+.heading-tertiary {
+  font-size: 3.6rem;
+  line-height: 1.2;
+  margin-bottom: 3.2rem;
+}
+.btn,
+.btn:link,
+.btn:visited {
+  display: inline-block;
+  font-size: 2rem;
+
+  text-decoration: none;
+  padding: 1.6rem 3.2rem;
+  border-radius: 9px;
+
+  /* we will transition to the  button and it should 
+  implement n initial stage */
+  /* transition: background-color 0.03s; */
+  /* we use all  then it will apply for shadow also  */
+  transition: all 0.4ss;
+  font-weight: 600;
+  /* only necessary for btn form  */
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.btn--full:link,
+.btn--full:visited {
+  background-color: #e67e22;
+}
+/* hover effect  */
+.btn--full:hover,
+.btn--full:active {
+  background-color: #cf711f;
+}
+
+/* for list */
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+.list-item {
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.list-icon {
+  width: 3rem;
+  height: 3rem;
+  color: #e67e22;
+}
+
+/* '''''''' */
+/* add helper class to create gap between 2 btn */
+/* --******** */
+.margin-right-sm {
+  margin-right: 1.6rem !important;
+}
+
+.margin-bottom-md {
+  margin-bottom: 4.8rem !important;
+}
+
+.btn--form {
+  background-color: #45260a;
+  color: #fdf2e9;
+  align-self: end;
+  padding: 1.2rem;
+}
+
+.btn--form:hover {
+  background-color: #fff;
+  color: #555;
+}
+.btn--outline:link,
+.btn--outline:visited {
+  background-color: #fff;
+  color: #555;
+}
+
+.btn--outline:hover,
+.btn--outline:active {
+  background-color: #fdf2e9;
+  color: #555;
+
+  /* to add border inside using box shadow */
+  /* trick to add border inside */
+  box-shadow: inset 0 0 0 3px #fff;
+}
+
+.link:link,
+.link:visited {
+  color: #e67e22;
+
+  text-decoration: none;
+  /* trick to use current color  */
+  border-bottom: 1px solid currentColor;
+  display: inline-block;
+  padding: 2px;
+  transition: all 0.3s;
+}
+
+.link:hover,
+.link:active {
+  color: #cf711f;
+  /*  we will not use this becauuse then  1px will effect  */
+  /* border-bottom: none; */
+  /* we will use other value like  */
+  border-bottom: 1px solid transparent;
+}
+.center-text {
+  text-align: center;
+}
+/* ************************** */
+/* reusable Grid */
+/* ******************* */
+.section-how {
+  padding: 9.6rem 0;
+  /* background-color: red; */
+}
+
+.container {
+  /* we can use 1140px */
+  max-width: 120rem;
+  padding: 0 3.2rem;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  row-gap: 9.6rem;
+  column-gap: 6.2rem;
+  /* grid-template-columns: 1fr 1fr; */
+  /* we can write  */
+  /* grid-template-columns: repeat(2, 1FR); */
+}
+
+/*   only in last child will not apply  */
+.grid:not(:last-child) {
+  margin-bottom: 9.6rem;
+}
+
+.grid--center-v {
+  align-items: center;
+}
+.grid--2-cols {
+  grid-template-columns: repeat(2, 1FR);
+}
+.grid--3-cols {
+  grid-template-columns: repeat(3, 1FR);
+}
+
+.grid--4-cols {
+  grid-template-columns: repeat(4, 1FR);
+}
+
+/* .grid--5-cols {
+  grid-template-columns: repeat(5, 1FR);
+} */
+
+strong {
+  font-weight: 599;
+}
